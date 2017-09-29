@@ -1,0 +1,226 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.hand</groupId>
+  <artifactId>ssm1</artifactId>
+  <packaging>war</packaging>
+  <version>1.0-SNAPSHOT</version>
+  <name>ssm1 Maven Webapp</name>
+  <url>http://maven.apache.org</url>
+
+
+  <properties>
+    <!--版本号-->
+    <spring.version>4.3.10.RELEASE</spring.version>
+    <mybatis.version>3.4.2</mybatis.version>
+    <mybatisSpring.version>1.3.1</mybatisSpring.version>
+    <mybatisGenerator.version>1.3.5</mybatisGenerator.version>
+    <jackson.version>2.8.8</jackson.version>
+    <hibernateValidator.version>5.4.1.Final</hibernateValidator.version>
+    <springJdbc.version>4.3.7.RELEASE</springJdbc.version>
+    <c3p0.version>0.9.1</c3p0.version>
+    <mysqlConn.version>5.1.41</mysqlConn.version>
+    <jstl.version>1.2</jstl.version>
+    <servlet.version>3.0.1</servlet.version>
+    <junit.version>4.12</junit.version>
+    <pageHelper.version>5.0.0</pageHelper.version>
+  </properties>
+
+
+
+  <!--引入项目依赖的jar包 -->
+  <!-- SpringMVC、Spring -->
+  <!-- https://mvnrepository.com/artifact/org.springframework/spring-webmvc -->
+  <dependencies>
+
+    <!--引入pageHelper分页插件 -->
+    <dependency>
+      <groupId>com.github.pagehelper</groupId>
+      <artifactId>pagehelper</artifactId>
+      <version>5.0.0</version>
+    </dependency>
+
+    <!-- https://mvnrepository.com/artifact/org.mybatis.generator/mybatis-generator-core -->
+    <dependency>
+      <groupId>org.mybatis.generator</groupId>
+      <artifactId>mybatis-generator-core</artifactId>
+      <version>1.3.5</version>
+    </dependency>
+
+
+    <!--引入pageHelper分页插件 -->
+    <dependency>
+      <groupId>com.github.pagehelper</groupId>
+      <artifactId>pagehelper</artifactId>
+      <version>${pageHelper.version}</version>
+    </dependency>
+
+    <!-- MBG -->
+    <!-- https://mvnrepository.com/artifact/org.mybatis.generator/mybatis-generator-core -->
+    <dependency>
+      <groupId>org.mybatis.generator</groupId>
+      <artifactId>mybatis-generator-core</artifactId>
+      <version>${mybatisGenerator.version}</version>
+    </dependency>
+
+
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-webmvc</artifactId>
+      <version>${spring.version}</version>
+    </dependency>
+
+    <!-- 返回json字符串的支持 -->
+    <!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-databind -->
+    <dependency>
+      <groupId>com.fasterxml.jackson.core</groupId>
+      <artifactId>jackson-databind</artifactId>
+      <version>${jackson.version}</version>
+    </dependency>
+
+    <!--JSR303数据校验支持；tomcat7及以上的服务器，
+    tomcat7以下的服务器：el表达式。额外给服务器的lib包中替换新的标准的el
+    -->
+    <!-- https://mvnrepository.com/artifact/org.hibernate/hibernate-validator -->
+    <dependency>
+      <groupId>org.hibernate</groupId>
+      <artifactId>hibernate-validator</artifactId>
+      <version>${hibernateValidator.version}</version>
+    </dependency>
+
+
+    <!-- Spring-Jdbc -->
+    <!-- https://mvnrepository.com/artifact/org.springframework/spring-jdbc -->
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-jdbc</artifactId>
+      <version>${springJdbc.version}</version>
+    </dependency>
+
+    <!--Spring-test -->
+    <!-- https://mvnrepository.com/artifact/org.springframework/spring-test -->
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-test</artifactId>
+      <version>${spring.version}</version>
+    </dependency>
+
+
+    <!-- Spring面向切面编程 -->
+    <!-- https://mvnrepository.com/artifact/org.springframework/spring-aspects -->
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-aspects</artifactId>
+      <version>${spring.version}</version>
+    </dependency>
+
+    <!--MyBatis -->
+    <!-- https://mvnrepository.com/artifact/org.mybatis/mybatis -->
+    <dependency>
+      <groupId>org.mybatis</groupId>
+      <artifactId>mybatis</artifactId>
+      <version>${mybatis.version}</version>
+    </dependency>
+    <!-- MyBatis整合Spring的适配包 -->
+    <!-- https://mvnrepository.com/artifact/org.mybatis/mybatis-spring -->
+    <dependency>
+      <groupId>org.mybatis</groupId>
+      <artifactId>mybatis-spring</artifactId>
+      <version>${mybatisSpring.version}</version>
+    </dependency>
+
+    <!-- 数据库连接池、驱动 -->
+    <!-- https://mvnrepository.com/artifact/c3p0/c3p0 -->
+    <dependency>
+      <groupId>c3p0</groupId>
+      <artifactId>c3p0</artifactId>
+      <version>${c3p0.version}</version>
+    </dependency>
+    <!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java -->
+    <dependency>
+      <groupId>mysql</groupId>
+      <artifactId>mysql-connector-java</artifactId>
+      <version>${mysqlConn.version}</version>
+    </dependency>
+    <!-- （jstl，servlet-api，junit） -->
+    <!-- https://mvnrepository.com/artifact/jstl/jstl -->
+    <dependency>
+      <groupId>jstl</groupId>
+      <artifactId>jstl</artifactId>
+      <version>${jstl.version}</version>
+    </dependency>
+
+    <!-- https://mvnrepository.com/artifact/javax.servlet/javax.servlet-api -->
+    <dependency>
+      <groupId>javax.servlet</groupId>
+      <artifactId>javax.servlet-api</artifactId>
+      <version>${servlet.version}</version>
+      <scope>provided</scope>
+    </dependency>
+
+
+    <!-- junit -->
+    <!-- https://mvnrepository.com/artifact/junit/junit -->
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>${junit.version}</version>
+    </dependency>
+  </dependencies>
+
+
+  <build>
+    <finalName>ssm1</finalName>
+
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <configuration>
+          <source>1.8</source>
+          <target>1.8</target>
+          <encoding>UTF-8</encoding>
+        </configuration>
+      </plugin>
+      <!--解决maven test 的乱码问题-->
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-surefire-plugin</artifactId>
+        <configuration>
+          <forkMode>once</forkMode>
+          <argLine>-Dfile.encoding=UTF-8</argLine>
+          <!--                     <systemProperties> -->
+          <!--                         <property> -->
+          <!--                             <name>net.sourceforge.cobertura.datafile</name> -->
+          <!--                             <value>target/cobertura/cobertura.ser</value> -->
+          <!--                         </property> -->
+          <!--                     </systemProperties> -->
+        </configuration>
+      </plugin>
+      <plugin>
+        <groupId>org.eclipse.jetty</groupId>
+        <artifactId>jetty-maven-plugin</artifactId>
+        <version>9.4.6.v20170531</version>
+        <configuration>
+          <webApp>
+
+            <!--<contextPath>/test</contextPath>-->
+          </webApp>
+
+          <scanIntervalSeconds>5</scanIntervalSeconds>
+        </configuration>
+      </plugin>
+      <!-- <plugin>
+           <groupId>org.mybatis.generator</groupId>
+           <artifactId>mybatis-generator-maven-plugin</artifactId>
+           <version>${plugin.mybatis.generator}</version>
+           <configuration>
+               <configurationFile>${mybatis.generator.generatorConfig.xml}</configurationFile>
+               <overwrite>true</overwrite>
+               <verbose>true</verbose>
+           </configuration>
+       </plugin>-->
+    </plugins>
+
+  </build>
+</project>
